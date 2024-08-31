@@ -100,7 +100,7 @@ body{
 }
 
 a:hover{
-   
+
     color: white;
 }
 
@@ -108,4 +108,10 @@ a:hover{
     min-height: 80vh;
     position: relative;
    
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+
 }
