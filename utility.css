@@ -1,0 +1,19 @@
+/* .border{
+    border: 2px solid red;
+} */
+
+.flex{
+    display: flex;
+}
+
+.justify-content-cen{
+    justify-content: center;
+}
+
+.allin-item-cen{
+    align-items: center;
+}
+
+.invert{
+    filter: invert(1);
+}
