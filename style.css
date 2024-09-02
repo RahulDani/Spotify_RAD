@@ -19,11 +19,7 @@ body{
     margin: 2px;
     padding: 10px;
 }
-.right{
-    width: 75vw;
-    margin: 2px;
-    padding: 10px;
-}
+
 
 .p-1{
     padding: 15px;
@@ -112,5 +108,57 @@ a:hover{
 .header{
     display: flex;
     justify-content: space-between;
+    background-color: rgb(47, 48, 49);
 
 }
+
+.header > *{
+    padding: 8px;
+}
+
+.buttons{
+    display: flex;
+    gap: 12px;
+}
+
+.right{
+    width: 75vw;
+    margin: 2px;   
+}
+
+
+.cardContainer{
+    display: flex;
+    gap:12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.spotifyPlaylists{
+
+    padding: 10px;
+}
+
+.spotifyPlaylists h1{
+    font-size: 18px;
+}
+
+.spotifyPlaylists .card{
+
+    width: 170px;
+    padding: 10px;
+}
+
+:hover.card{
+    transition: 0.2s ease-in-out;
+background-color: #1f1f1f;
+}
+
+
+
+
+.spotifyPlaylists .card img{
+    width: 100%;
+    object-fit: contain;
+}
+
