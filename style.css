@@ -83,15 +83,17 @@ body{
     position: absolute;
     bottom: 0;
     margin-bottom: 5px;
-    
+    padding: 10px;
+    flex-wrap: wrap;
    
 }
 
 .footer a{
-   font-size: 10px;
+   font-size: 8px;
     color: gray;
     text-decoration: none;
     transition: color 0.5s ease;
+    
    
 }
 
@@ -119,6 +121,50 @@ a:hover{
 .buttons{
     display: flex;
     gap: 12px;
+    margin-right: 25px;
+   
+}
+
+
+
+.signupbtn{
+    background-color:transparent;
+    color: rgb(196, 196, 196);
+    transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+    border-style: none;
+
+}
+
+
+.signupbtn:hover{
+    color: white;
+    font-size: 1.05rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.loginbtn{
+    background-color:white;
+    color: rgb(114, 112, 112);
+    transition: all 0.2s ease-in-out;
+    border-radius: 40px;
+    border-style: none;
+    width: 61px;
+    height: 28px;
+
+}
+
+
+.loginbtn:hover{
+    width: 61.5px;
+    height: 29px;
+    color: rgb(0, 0, 0);
+    font-size: 1.05rem;
+    cursor: pointer;
+    font-weight: bold;
+   
 }
 
 .right{
@@ -132,6 +178,8 @@ a:hover{
     gap:12px;
     flex-wrap: wrap;
     margin-top: 20px;
+    overflow-y: scroll;
+    max-height: 75vh;
 }
 
 .spotifyPlaylists{
@@ -147,18 +195,31 @@ a:hover{
 
     width: 170px;
     padding: 10px;
+    position: relative;
 }
 
-:hover.card{
+.card:hover{
     transition: 0.2s ease-in-out;
 background-color: #1f1f1f;
 }
 
 
-
-
 .spotifyPlaylists .card img{
     width: 100%;
     object-fit: contain;
+}
+
+.play{
+    position: absolute;
+    right: 19px;
+    top: 158px;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    
+}
+
+.card:hover .play {
+    opacity: 1;
+    top: 144px;
 }
 

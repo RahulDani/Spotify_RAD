@@ -17,3 +17,29 @@
 .invert{
     filter: invert(1);
 }
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #2c2c2c; /* Background of the track */
+    border-radius: 10px; /* Optional: rounding the track edges */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #4f4f4f; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Optional: rounding the thumb edges */
+    border: 2px solid #2c2c2c; /* Padding around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #666666; /* Color of the thumb on hover */
+}
+
+/* Firefox Styles */
+* {
+    scrollbar-width: thin; /* Make scrollbar thinner */
+    scrollbar-color: #4f4f4f #2c2c2c; /* Thumb color, Track color */
+}
