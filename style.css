@@ -227,7 +227,16 @@ background-color: #1f1f1f;
 .playbar{
     position: absolute;
    bottom: 0;
-    background-color: aqua;
+    background-color: #1DB954;
     width:72.4vw;
+    height: 32px;
+}
+
+.songbtns{
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    padding: 3px;
+    
 }
 
