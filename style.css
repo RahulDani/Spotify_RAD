@@ -245,5 +245,17 @@ background-color: #1f1f1f;
 
 
 .songList ul li{
-    list-style-type: decimal;
+    list-style-type: none;
+    display: flex;
+    gap: 25px;
+    cursor: pointer;
+    padding: 10px 0px;
+    
 }
+
+.jwimg{
+    height: 5vh;
+    width: 2.5vw;
+    padding: 2px 0px;
+}
+
