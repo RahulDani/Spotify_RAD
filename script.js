@@ -1,4 +1,7 @@
 console.log("lets write js")
+
+let currentSong= new Audio();
+
 async function getsongs(linkforsongs) {
     let a =await fetch(linkforsongs);
     let response = await a.text();
@@ -23,8 +26,20 @@ async function getsongs(linkforsongs) {
     
 }
 
+const playmusic = async (track)=>{
+    //let audio = new Audio("/songs/" + track.trim()); // this wont work because each time it will parallely create a separate audio obj
+    currentSong.src= "/songs/" + track.trim()
+    console.log(currentSong);
+    currentSong.play();
+    
+    
+
+}
+
 
 async function main(){
+
+   
 
     let songs=await getsongs("http://127.0.0.1:3000/songs/")
     console.log(songs);
@@ -39,16 +54,43 @@ async function main(){
     // after
 
     for (const Song of songs) {
-        songsUL.innerHTML = songsUL.innerHTML + `<li> ${Song.replaceAll("%20"," ")} </li>`;
+        songsUL.innerHTML = songsUL.innerHTML + `<li><img style="width: 20px;" class="invert" src="svgs/music.svg" alt="" srcset="">
+                            <div class="info">
+                                <div class="song_name">
+                                ${Song.replaceAll("%20"," ")} 
+                                </div>
+                            </div>
+                            <div class="playnow">
+                                <span>Play now</span>
+                                <img class="invert " src="svgs/playbtn.svg" alt="" srcset="">
+                            </div>
+                        
+        
+        
+        
+        </li>`;
     }
 
-    var audio = new Audio(songs[1]);
-    // audio.play();
 
-    audio.addEventListener("loadeddata", () => {
-        console.log(audio.duration,audio.currentTime);
-        
-});
+  Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e=>{
+    e.addEventListener("click",element=>{
+        console.log(e.querySelector(".info").firstElementChild.innerHTML);  
+        playmusic(e.querySelector(".info").firstElementChild.innerHTML);
+    })
+  })
+
+  play.addEventListener("click",()=>{
+    console.log("play button clicked");
+    if(currentSong.paused){
+        currentSong.play();
+        play.src="svgs/pausebtn.svg";
+    }
+    else{
+        currentSong.pause();
+        play.src="svgs/playbtn.svg";
+        }
+  })
+
 
     
 }
