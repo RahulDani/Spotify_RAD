@@ -2,6 +2,28 @@ console.log("lets write js")
 
 let currentSong= new Audio();
 
+function convertSecondsToMinutes(seconds) {
+    // Ensure the input is a non-negative integer
+    if (seconds < 0) {
+        return "00:00"; // Return 00:00 for negative input
+    }
+
+    // Round seconds to the nearest whole number
+    seconds = Math.floor(seconds);
+
+    // Calculate minutes and remaining seconds
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    // Format minutes and seconds to always have two digits
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+    // Return formatted time in MM:SS
+    return `${formattedMinutes}:${formattedSeconds}`;
+}
+
+
 async function getsongs(linkforsongs) {
     let a =await fetch(linkforsongs);
     let response = await a.text();
@@ -26,11 +48,17 @@ async function getsongs(linkforsongs) {
     
 }
 
-const playmusic = async (track)=>{
+const playmusic = async (track,pause=false)=>{
     //let audio = new Audio("/songs/" + track.trim()); // this wont work because each time it will parallely create a separate audio obj
     currentSong.src= "/songs/" + track.trim()
+    if(!pause){
     console.log(currentSong);
     currentSong.play();
+    play.src="svgs/pausebtn.svg";
+
+    }
+    document.querySelector(".songInfo").innerHTML=decodeURI(track);
+    document.querySelector("songTime").innerHTML="00:00"
     
     
 
@@ -39,10 +67,12 @@ const playmusic = async (track)=>{
 
 async function main(){
 
+
    
 
     let songs=await getsongs("http://127.0.0.1:3000/songs/")
     console.log(songs);
+    playmusic(songs[0],true)
 
     let songsUL= document.querySelector(".songList").getElementsByTagName("ul")[0];
 
@@ -80,7 +110,6 @@ async function main(){
   })
 
   play.addEventListener("click",()=>{
-    console.log("play button clicked");
     if(currentSong.paused){
         currentSong.play();
         play.src="svgs/pausebtn.svg";
@@ -91,6 +120,51 @@ async function main(){
         }
   })
 
+  currentSong.addEventListener("timeupdate",()=>{
+   // console.log(currentSong.currentTime,currentSong.duration);
+    document.querySelector(".songTime").innerHTML=`${convertSecondsToMinutes(currentSong.currentTime)}/${convertSecondsToMinutes(currentSong.duration)}`
+    document.querySelector(".circle").style.left = (currentSong.currentTime)/(currentSong.duration)*100 + "%";
+  })
+
+   document.querySelector(".seekbar").addEventListener("click",e=>{
+   let seekPercent=  (e.offsetX/e.target.getBoundingClientRect().width)*100;
+  document.querySelector(".circle").style.left = seekPercent + "%";
+  currentSong.currentTime=((currentSong.duration)*seekPercent)/100;
+  })
+
+  document.querySelector(".hamburger").addEventListener("click",()=>{
+    document.querySelector(".left").style.left="0"+"%";
+  })
+  
+  document.querySelector(".close").addEventListener("click",()=>{
+    document.querySelector(".left").style.left="-100"+"%";
+  })
+
+  document.querySelector("#previous").addEventListener("click",()=>{             //#previous becuase its a id , but fot class we use .previous rememebr
+    let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
+    console.log(currentSong.src.split("/").slice(-1));
+    if((index-1)>=0){
+      playmusic(songs[index-1]);
+    }
+  })
+
+  document.querySelector("#next").addEventListener("click",()=>{             //#previous becuase its a id , but fot class we use .previous rememebr
+    let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
+    console.log(currentSong.src.split("/").slice(-1));
+    if((index+1) < songs.length){
+      playmusic(songs[index+1]);
+    }
+  })
+     
+  document.querySelector(".volume").addEventListener("click", () => {
+    const rangeElement = document.querySelector(".range");
+    
+    if (rangeElement.style.display === "inline-block") {
+      rangeElement.style.display = "none"; // Hide the element
+    } else {
+      rangeElement.style.display = "inline-block"; // Show the element
+    }
+  });
 
     
 }

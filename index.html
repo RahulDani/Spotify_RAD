@@ -12,6 +12,9 @@
 <body>
     <div class="conatainer flex bg-black">
         <div class="left border">
+            <div class="close">
+                <img src="svgs/close.svg" alt="">
+            </div>
             <div class="home rounded bg-grey m-1 p-1">
                 <img src="svgs/logo.svg" alt="logo">
                 <ul>
@@ -49,9 +52,10 @@
 
         </div>
 
-        <div class="right rounded bg-grey" style="margin: 18px 23px 17px -7px;">
+        <div class="right rounded bg-grey">
             <div class="header rounded ">
                 <div class="nav">
+                    <img class="hamburger" src="svgs/hamburge.svg" alt="">
                     <svg class="leftnav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                         color="#FFFFFF" fill="none">
                         <path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="currentColor"
@@ -113,22 +117,68 @@
                         <p>Viral, trending and taking off.</p>
                     </div>
 
-                </div>
-            </div>
+                    <div class="card rounded">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
+                                <!-- Green circle background -->
+                                <circle cx="12" cy="12" r="10" fill="#1DB954" />
 
-            <div class="playbar ">
-                <div class="seekbar">
-                    <div class="circle">
-                        
+                                <path
+                                    d="M15.4531 12.3948C15.3016 13.0215 14.5857 13.4644 13.1539 14.3502C11.7697 15.2064 11.0777 15.6346 10.5199 15.4625C10.2893 15.3913 10.0793 15.2562 9.90982 15.07C9.5 14.6198 9.5 13.7465 9.5 12C9.5 10.2535 9.5 9.38018 9.90982 8.92995C10.0793 8.74381 10.2893 8.60868 10.5199 8.53753C11.0777 8.36544 11.7697 8.79357 13.1539 9.64983C14.5857 10.5356 15.3016 10.9785 15.4531 11.6052C15.5156 11.8639 15.5156 12.1361 15.4531 12.3948Z"
+                                    fill="none" stroke="#000000" stroke-width="1.5" stroke-linejoin="round" />
+                            </svg>
+
+
+                        </div>
+                        <img class="rounded" src="images/hits.jpg" alt="" srcset="">
+                        <h2>Top hits!</h2>
+                        <p>Viral, trending and taking off.</p>
                     </div>
-                </div>
-                <div class="songbtns">
-                    <img id="previous" src="svgs/previousbtn.svg" alt="">
-                    <img id="play" src="/svgs/playbtn.svg" alt="" srcset="">
-                    <img id="next" src="svgs/nextbtn.svg" alt="" srcset="">
-                </div>
 
+                    <div class="card rounded">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
+                                <!-- Green circle background -->
+                                <circle cx="12" cy="12" r="10" fill="#1DB954" />
+
+                                <path
+                                    d="M15.4531 12.3948C15.3016 13.0215 14.5857 13.4644 13.1539 14.3502C11.7697 15.2064 11.0777 15.6346 10.5199 15.4625C10.2893 15.3913 10.0793 15.2562 9.90982 15.07C9.5 14.6198 9.5 13.7465 9.5 12C9.5 10.2535 9.5 9.38018 9.90982 8.92995C10.0793 8.74381 10.2893 8.60868 10.5199 8.53753C11.0777 8.36544 11.7697 8.79357 13.1539 9.64983C14.5857 10.5356 15.3016 10.9785 15.4531 11.6052C15.5156 11.8639 15.5156 12.1361 15.4531 12.3948Z"
+                                    fill="none" stroke="#000000" stroke-width="1.5" stroke-linejoin="round" />
+                            </svg>
+
+
+                        </div>
+                        <img class="rounded" src="images/hits.jpg" alt="" srcset="">
+                        <h2>Top hits!</h2>
+                        <p>Viral, trending and taking off.</p>
+                    </div>
+
+                </div>
             </div>
+
+
+            <div class="playbar">
+                <div class="seekbar">
+                    <div class="circle"></div>
+                </div>
+                <div class="aboveSeek">
+                    <div class="songInfo"></div>
+                    <div class="songbtns">
+                        <img id="previous" src="svgs/previousbtn.svg" alt="">
+                        <img id="play" src="svgs/playbtn.svg" alt="">
+                        <img id="next" src="svgs/nextbtn.svg" alt="">
+                    </div>
+                    <img class="volume" src="svgs/volume.svg" alt="" srcset="">
+                      <div class="songTime">00:00/00:00</div>
+                 
+                </div>
+            </div>
+
+            <div class="range">
+                <input type="range">
+            </div>
+            
+            
 
         </div>
 
